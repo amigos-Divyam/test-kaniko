@@ -1,0 +1,17 @@
+{
+    "cluster": "traefik-cluster",
+    "count": 1,
+    "launchType": "FARGATE",
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-06692489365ae2711"
+            ],
+            "securityGroups": [
+                "sg-0a55f40f012749ca0"
+            ],
+            "assignPublicIp": "DISABLED"
+        }
+    },
+    "platformVersion": "1.4.0"
+}

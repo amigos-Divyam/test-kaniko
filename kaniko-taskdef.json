@@ -1,0 +1,29 @@
+{
+  "family": "kaniko-builder",
+  "executionRoleArn": "arn:aws:iam::000379120260:role/Acorn-DevOps",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+      {
+          "name": "kaniko",
+          "image": "gcr.io/kaniko-project/executor",
+          "logConfiguration": {
+              "logDriver": "awslogs",
+              "options": {
+                  "awslogs-group": "dev/grid/apps",
+                  "awslogs-region": "eu-west-2",
+                  "awslogs-stream-prefix": "kaniko"
+              }
+          },
+          "command": [
+              "--context", "https://github.com/Autorama/sample-ror.git",
+              "--context-sub-path", "./",
+              "--dockerfile", "Dockerfile",
+              "--destination", "000379120260.dkr.ecr.eu-west-2.amazonaws.com/sample-ror:kaniko1",
+              "--force"
+          ]
+      }],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024"
+}
+    
